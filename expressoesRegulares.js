@@ -62,13 +62,13 @@
 // [ˆ0-9] não aceita qualquer caracter entre 0 e 9
 
 //[0-9] alterando os valores para aceitar de 0 a 9
-var regExp = /^\([0-9][0-9]\)[0-9][0-9][0-9][0-9]-9999$/;
-var telefone = '(80)9999-9999';
-console.log(regExp.test(telefone)) //true
+// var regExp = /^\([0-9][0-9]\)[0-9][0-9][0-9][0-9]-9999$/;
+// var telefone = '(80)9999-9999';
+// console.log(regExp.test(telefone)) //true
 
-var regExp = /^\([0-9][0-9]\)[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$/;
-var telefone = '(80)9999-9999';
-console.log(regExp.test(telefone)) //true
+// var regExp = /^\([0-9][0-9]\)[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$/;
+// var telefone = '(80)9999-9999';
+// console.log(regExp.test(telefone)) //true
 
 //passo 5 __________________Grupos Quantificadores
 // os quantificadores podem ser aplicados a caracteres, grupos, conjuntos ou metacaracteres
@@ -76,3 +76,14 @@ console.log(regExp.test(telefone)) //true
 //{n,} - quantifica um número mínimo
 //{n,m} - quantifica um número mínimo e um número máximo
 
+//usando {n} - para quantificar e ficar mais enxuto
+var regExp = /^\([0-9]{2}\)[0-9]{4}-[0-9]{4}$/;
+var telefone = '(80)9999-9999';
+console.log(regExp.test(telefone)) //true
+
+//colocando um caracter a mais
+var regExp = /^\([0-9]{2}\)[0-9]{4,5}-[0-9]{4}$/;
+var telefone1 = '(80)99877-1234';
+console.log(regExp.test(telefone1)) //true
+var telefone2 = '(80)9999-9999';
+console.log(regExp.test(telefone2)) //true
